@@ -20,8 +20,7 @@ public class TopicController {
 
     @GetMapping("/topics/{id}")
     public Topic getTopicById(@PathVariable String id) {
-        return topicService.getTopicById(id)
-                .orElse(null);
+        return topicService.getTopicById(id);
     }
 
     @PostMapping("/topics")
