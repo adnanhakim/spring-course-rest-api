@@ -14,29 +14,29 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/topic/{id}/courses")
+    @GetMapping("/topics/{id}/courses")
     public List<Course> getAllCourses(@PathVariable String id) {
         return courseService.getAllCourses(id);
     }
 
-    @GetMapping("/topic/{topicId}/courses/{id}")
+    @GetMapping("/topics/{topicId}/courses/{id}")
     public Course getCourseById(@PathVariable String id) {
         return courseService.getCourseById(id);
     }
 
-    @PostMapping("/topic/{topicId}/courses")
+    @PostMapping("/topics/{topicId}/courses")
     public void addCourse(@PathVariable String topicId, @RequestBody Course course) {
         course.setTopic(new Topic(topicId, "", ""));
         courseService.addCourse(course);
     }
 
-    @PutMapping("/topic/{topicId}/courses/{id}")
+    @PutMapping("/topics/{topicId}/courses/{id}")
     public void updateCourseById(@PathVariable String topicId, @PathVariable String id, @RequestBody Course course) {
         course.setTopic(new Topic(topicId, "", ""));
         courseService.updateCourseById(course);
     }
 
-    @DeleteMapping("/topic/{topicId}/courses/{id}")
+    @DeleteMapping("/topics/{topicId}/courses/{id}")
     public void deleteCourseById(@PathVariable String id) {
         courseService.deleteCourseById(id);
     }
